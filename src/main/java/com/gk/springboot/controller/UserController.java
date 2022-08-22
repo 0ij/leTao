@@ -16,7 +16,6 @@ public class UserController {
 
     @PostMapping("/login")
     public R login(String username,String password){
-
         System.out.println("username = " + username+"  password ="+password);
        Customer customer = customerService.getByNameAndPassword(username,password);
         if(null == customer){

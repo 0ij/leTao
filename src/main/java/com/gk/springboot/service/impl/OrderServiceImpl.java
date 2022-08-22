@@ -50,10 +50,17 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order>implements 
     }
 
     @Override
-    public Order findOrderById(Integer id) {
+    public Order findOrderByGid(Integer gid) {
+        QueryWrapper<Order>wrapper=new QueryWrapper<>();
+        wrapper.eq("Gid",gid);
+        return null;
+    }
+
+    @Override
+    public Order findOrderByOid(Integer oid) {
 //        QueryWrapper<Order>wrapper=new QueryWrapper<>();
 //        wrapper.eq("Oid",id);
-        Order order= mapper.selectById(id);
+        Order order= mapper.selectById(oid);
         return order;
     }
 }
