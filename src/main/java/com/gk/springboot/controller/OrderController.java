@@ -1,5 +1,6 @@
 package com.gk.springboot.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.gk.springboot.entity.Customer;
 import com.gk.springboot.entity.Order;
 import com.gk.springboot.service.IOrderService;
@@ -16,15 +17,25 @@ public class OrderController {
     @Resource
     IOrderService orderService;
 
-    @GetMapping("/getOrder")
-    public List<Order> getOrders(){
-        List<Order> orderList = orderService.findAllOrders();
-        return orderList;
-    }
+//    @GetMapping("/getOrder")
+//    public List<Order> getOrders(){
+//        List<Order> orderList = orderService.findAllOrders();
+//        return orderList;
+//    }
 
     @GetMapping("/getOrders")
     public R getOrderList(){
         return R.ok().data("orders",orderService.findAllOrders());
+    }
+
+    @GetMapping("/getOrderById")
+    public R getOrderById(Integer id){
+        return R.ok().data("orders",orderService.findOrderById(id));
+    }
+
+    @GetMapping("/getOrderByGid")
+    public R getOrderByGid(int id){
+        return R.ok().data("orders",orderService.findOrderById(id));
     }
 
     @PostMapping("/addOrder")

@@ -48,4 +48,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order>implements 
         mapper.deleteById(id);
         return id;
     }
+
+    @Override
+    public Order findOrderById(Integer id) {
+//        QueryWrapper<Order>wrapper=new QueryWrapper<>();
+//        wrapper.eq("Oid",id);
+        Order order= mapper.selectById(id);
+        return order;
+    }
 }
