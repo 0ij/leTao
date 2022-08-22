@@ -2,6 +2,7 @@ package com.gk.springboot.controller;
 
 import com.gk.springboot.entity.Evaluation;
 import com.gk.springboot.service.IEvaluationService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/evaluation")
+@CrossOrigin
 public class EvaluationController {
     @Resource
     IEvaluationService evaluationService;

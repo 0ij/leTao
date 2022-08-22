@@ -20,11 +20,16 @@ public class UserController {
         System.out.println("username = " + username+"  password ="+password);
        Customer customer = customerService.getByNameAndPassword(username,password);
         if(null == customer){
-            return R.ok().data("token","admin");
+            return R.ok().data("what","f*ck");
        }else{
            return R.error().data("no","no");
        }
 
+    }
+
+    @GetMapping("/getCustomers")
+    public R getCustomers(){
+        return R.ok().data("teachers",customerService.findAllCustomers());
     }
 
     //获取信息接口

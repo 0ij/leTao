@@ -2,16 +2,14 @@ package com.gk.springboot.controller;
 
 import com.gk.springboot.entity.Customer;
 import com.gk.springboot.service.ICustomerService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
 @RequestMapping("/customer")
+@CrossOrigin
 public class CustomerController {
     @Resource
     ICustomerService customerService;

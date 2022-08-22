@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.gk.springboot.entity.Customer;
 import com.gk.springboot.mapper.CustomerMapper;
 import com.gk.springboot.service.ICustomerService;
+import com.gk.springboot.utils.R;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -23,6 +25,7 @@ public class CustomerServiceImpl extends ServiceImpl<CustomerMapper,Customer> im
 
         return customerList;
     }
+
 
     @Override
     public Customer addCustomer(){

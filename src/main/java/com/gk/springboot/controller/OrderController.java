@@ -3,16 +3,15 @@ package com.gk.springboot.controller;
 import com.gk.springboot.entity.Customer;
 import com.gk.springboot.entity.Order;
 import com.gk.springboot.service.IOrderService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.gk.springboot.utils.R;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
 @RequestMapping("/order")
+@CrossOrigin
 public class OrderController {
     @Resource
     IOrderService orderService;
@@ -21,6 +20,11 @@ public class OrderController {
     public List<Order> getOrders(){
         List<Order> orderList = orderService.findAllOrders();
         return orderList;
+    }
+
+    @GetMapping("/getOrders")
+    public R getOrderList(){
+        return R.ok().data("orders",orderService.findAllOrders());
     }
 
     @PostMapping("/addOrder")
