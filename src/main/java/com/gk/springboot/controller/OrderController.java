@@ -28,14 +28,16 @@ public class OrderController {
         return R.ok().data("orders",orderService.findAllOrders());
     }
 
-    @GetMapping("/getOrderById")
-    public R getOrderById(Integer id){
-        return R.ok().data("orders",orderService.findOrderById(id));
+    @CrossOrigin
+    @PostMapping("/getOrderByOid")
+    public R getOrderByOid(@RequestParam Integer oid){
+        System.err.println("oid-------->"+oid);
+        return R.ok().data("orders",orderService.findOrderByOid(oid));
     }
 
     @GetMapping("/getOrderByGid")
-    public R getOrderByGid(int id){
-        return R.ok().data("orders",orderService.findOrderById(id));
+    public R getOrderByGid(@RequestBody int gid){
+        return R.ok().data("orders",orderService.findOrderByGid(gid));
     }
 
     @PostMapping("/addOrder")
@@ -45,13 +47,13 @@ public class OrderController {
     }
 
     @PostMapping("/updateOrder")
-    public Order updateOrderById(Integer id){
+    public Order updateOrderById(@RequestBody Integer id){
         Order order = orderService.updateOrderById(id);
         return order;
     }
 
     @GetMapping("/deleteOrder")
-    public int deleteOrderById(Integer id){
+    public int deleteOrderById(@RequestBody Integer id){
         Integer res = orderService.deleteOrderById(id);
         return res;
     }

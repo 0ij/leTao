@@ -15,5 +15,8 @@ public interface IOrderService extends IService<Order> {
 
     Integer deleteOrderById(Integer id);
 
-    Order findOrderById(Integer id);
+
+    Order findOrderByGid(Integer gid);
+
+    Order findOrderByOid(Integer oid);
 }
