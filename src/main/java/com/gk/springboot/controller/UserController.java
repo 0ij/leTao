@@ -19,9 +19,9 @@ public class UserController {
         System.out.println("username = " + username+"  password ="+password);
        Customer customer = customerService.getByNameAndPassword(username,password);
         if(null == customer){
-            return R.ok().data("what","f*ck");
+            return R.error().data("前标","内容");
        }else{
-           return R.error().data("no","no");
+            return R.ok().data("前标","内容");
        }
 
     }
@@ -31,10 +31,11 @@ public class UserController {
         return R.ok().data("teachers",customerService.findAllCustomers());
     }
 
-    //获取信息接口
+    //获取信息接口，传啥啊这
     @GetMapping("/info")
     public R getInfo(String info){
+        //返回的roles是这里的内容
 
-        return R.ok().data("roles","[admin]").data("name","admin");
+        return R.ok().data("roles","[admin]").data("name","一个名字！");
     }
 }

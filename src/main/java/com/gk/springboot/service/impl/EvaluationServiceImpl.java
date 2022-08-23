@@ -2,9 +2,11 @@ package com.gk.springboot.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.gk.springboot.entity.Customer;
 import com.gk.springboot.entity.Evaluation;
 import com.gk.springboot.mapper.EvaluationMapper;
 import com.gk.springboot.service.IEvaluationService;
+import com.gk.springboot.utils.R;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -35,6 +37,14 @@ public class EvaluationServiceImpl extends ServiceImpl<EvaluationMapper, Evaluat
 
         int res = mapper.insert(evaluation);
 
+        return evaluation;
+    }
+
+    @Override
+    public Evaluation findEvaluationById(String id) {
+        QueryWrapper<Evaluation> wrapper=new QueryWrapper<>();
+        wrapper.eq("Oid",id);
+        Evaluation evaluation =mapper.selectOne(wrapper);
         return evaluation;
     }
 

@@ -11,4 +11,6 @@ public interface IEvaluationService extends IService<Evaluation> {
     List<Evaluation> findAllEvaluations();
 
     Evaluation addEvaluation();
+
+    Evaluation findEvaluationById(String id);
 }

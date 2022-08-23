@@ -3,10 +3,7 @@ package com.gk.springboot.controller;
 import com.gk.springboot.entity.Evaluation;
 import com.gk.springboot.service.IEvaluationService;
 import com.gk.springboot.utils.R;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -29,4 +26,11 @@ public class EvaluationController {
     public R getEvaluationList(){
         return R.ok().data("evaluations",evaluationService.findAllEvaluations());
     }
+
+    @PostMapping("/getEvaluationByOid")
+    public R getEvaluationById(String id){
+        System.err.println("id:"+id);
+        return R.ok().data("evaluations",evaluationService.findEvaluationById(id));
+    }
+
 }

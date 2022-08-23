@@ -11,7 +11,7 @@ public interface ICustomerService extends IService<Customer> {
     List<Customer> findAllCustomers();
     Customer addCustomer();
 
-    Customer updateCustomerById(Integer id);
+    Customer updateCustomerNameById(Integer cid,String name);
 
     int deleteCustomerById(Integer id);
 

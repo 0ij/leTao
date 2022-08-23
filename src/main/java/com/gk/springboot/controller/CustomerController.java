@@ -18,7 +18,6 @@ public class CustomerController {
     public List<Customer> getCustomers(){
         List <Customer> customerList =customerService.findAllCustomers();
         return customerList;
-
     }
 
     @PostMapping("/addCustomer")
@@ -27,9 +26,12 @@ public class CustomerController {
         return customer;
     }
 
-    @PostMapping("/updateCustomer")
-    public Customer updateCustomerById(Integer id){
-        Customer customer = customerService.updateCustomerById(id);
+    @PostMapping("/updateCustomerName")
+    public Customer updateCustomerNameById(Integer cid,String name){
+        System.err.print("函数调用");
+        System.err.print("cid:"+cid);
+        System.err.print("name:"+name);
+        Customer customer = customerService.updateCustomerNameById(cid,name);
         return customer;
     }
 

@@ -39,10 +39,11 @@ public class CustomerServiceImpl extends ServiceImpl<CustomerMapper,Customer> im
     }
 
     @Override
-    public Customer updateCustomerById(Integer id) {
+    public Customer updateCustomerNameById(Integer cid,String name) {
         Customer customer = new Customer();
-        customer.setCid(id);
-        customer.setCpassword("4444");
+        customer.setCid(cid);
+        //customer.setCpassword("4444");
+        customer.setName(name);
         customerMapper.updateById(customer);
         return customer;
     }

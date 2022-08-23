@@ -28,15 +28,16 @@ public class OrderController {
         return R.ok().data("orders",orderService.findAllOrders());
     }
 
-    @CrossOrigin
+
     @PostMapping("/getOrderByOid")
-    public R getOrderByOid(@RequestParam Integer oid){
+    @CrossOrigin
+    public R getOrderByOid( Integer oid){
         System.err.println("oid-------->"+oid);
         return R.ok().data("orders",orderService.findOrderByOid(oid));
     }
 
-    @GetMapping("/getOrderByGid")
-    public R getOrderByGid(@RequestBody int gid){
+    @PostMapping("/getOrderByGid")
+    public R getOrderByGid(int gid){
         return R.ok().data("orders",orderService.findOrderByGid(gid));
     }
 
