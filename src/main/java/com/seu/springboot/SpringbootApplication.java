@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * springboot启动类
  */
 @SpringBootApplication
-@MapperScan(basePackages = "com.gk.springboot.mapper")
+@MapperScan(basePackages = "com.seu.springboot.mapper")
 public class SpringbootApplication {
 
     public static void main(String[] args) {

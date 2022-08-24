@@ -8,7 +8,7 @@
         <version>2.7.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.gk</groupId>
+    <groupId>com.seu</groupId>
     <artifactId>springboor_0817</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springboor_0817</name>

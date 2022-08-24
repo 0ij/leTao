@@ -38,7 +38,7 @@ public class MyBatisPlusGenerator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.gk.springboot");  //父级公用包名，就是自动生成的文件放在项目路径下的那个包中
+        pc.setParent("com.seu.springboot");  //父级公用包名，就是自动生成的文件放在项目路径下的那个包中
         mpg.setPackageInfo(pc);
 
         // 自定义配置
