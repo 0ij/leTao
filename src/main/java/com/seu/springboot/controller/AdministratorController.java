@@ -1,11 +1,13 @@
 package com.seu.springboot.controller;
 
 import com.seu.springboot.entity.Administrator;
+import com.seu.springboot.entity.Evaluation;
 import com.seu.springboot.service.IAdministratorService;
 import com.seu.springboot.utils.R;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -19,19 +21,17 @@ public class AdministratorController {
      * */
     @GetMapping("/getAdministrator")
     public R getAdministrator(){
-
         //调用service层函数
         List<Administrator> list = service.findAll();
 
-        //System.err.println("list--------->"+list);
-        //return  list;
         return R.ok().data("Administrator",service.findAll());
     }
 
     @GetMapping("/getAdministratorByID")
     public R getAdministratorByID( Integer id){
         Administrator administrator=service.getById(id);
-
+        List<Administrator> list=new ArrayList<>();
+        list.add(administrator);
 
         return R.ok().data("items",administrator);
     }

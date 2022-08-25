@@ -19,7 +19,7 @@ public class Customer {
     private Integer Cid;
 
     @TableField("Cname")
-    private String name;
+    private String cname;
 
     @TableField("Cpassword")
     private String cpassword;

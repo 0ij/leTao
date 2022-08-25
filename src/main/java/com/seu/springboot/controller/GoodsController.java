@@ -1,5 +1,6 @@
 package com.seu.springboot.controller;
 
+import com.seu.springboot.entity.Evaluation;
 import com.seu.springboot.entity.Goods;
 import com.seu.springboot.service.IGoodsService;
 
@@ -7,6 +8,7 @@ import com.seu.springboot.utils.R;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -19,22 +21,19 @@ public class GoodsController {
      * 查询的部分
      * */
     @GetMapping("/getGoods")
-    public R getShopSales(){
-
+    public R getGoods(){
         //调用service层函数
         List<Goods> list = service.findAll();
-
-        //System.err.println("list--------->"+list);
-        //return  list;
         return R.ok().data("Goods",service.findAll());
     }
 
-    @GetMapping("/getGoodsByID")
-    public R getGoodsByID( Integer id){
-        Goods a_good=service.getById(id);
+    @PostMapping("/getGoodsByID")
+    public R getGoodsByID(Integer Gid){
+        //System.err.println("Gid: "+Gid );
+        List<Goods> list=new ArrayList<>();
+        list.add(service.getById(Gid));
 
-
-        return R.ok().data("items",a_good);
+        return R.ok().data("items",list);
     }
 
 //    @GetMapping("/getGoodsByName")
@@ -50,8 +49,7 @@ public class GoodsController {
      * 增加的部分
      * */
     @PostMapping("/addGoods")
-    public R addGoods(@RequestBody Goods goods){
-
+    public R addGoods(@RequestParam Goods goods){
         boolean mark=service.save(goods);
         if(mark)
             return R.ok();
@@ -62,6 +60,7 @@ public class GoodsController {
      * */
     @GetMapping("/delGoodsByID")
     public R delGoodsByID(Integer id){
+
         boolean wre=service.removeById(id);
         if(wre) {
             return R.ok();

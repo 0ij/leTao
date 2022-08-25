@@ -1,11 +1,15 @@
 package com.seu.springboot.controller;
 
 
+import com.seu.springboot.entity.Evaluation;
 import com.seu.springboot.entity.Goodssales;
 import com.seu.springboot.service.IGoodssalesService;
 import com.seu.springboot.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -48,10 +52,12 @@ public class GoodssalesController {
         }
     }
 
-    @GetMapping("/getGoodssalesById/{gid}")
-    public R getGoodssalesById(@PathVariable Integer gid) {
+    @GetMapping("/getGoodssalesById")
+    public R getGoodssalesById(Integer gid) {
         Goodssales goodssales = service.getById(gid);
-        return R.ok().data("items", goodssales);
+        List<Goodssales> list=new ArrayList<>();
+        list.add(goodssales);
+        return R.ok().data("items", list);
     }
 
     @PostMapping("/updateGoodssales")

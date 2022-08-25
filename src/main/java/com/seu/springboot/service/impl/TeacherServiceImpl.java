@@ -5,6 +5,7 @@ import com.seu.springboot.entity.Teacher;
 import com.seu.springboot.mapper.TeacherMapper;
 import com.seu.springboot.service.ITeacherService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -22,6 +23,7 @@ import java.util.List;
 public class TeacherServiceImpl extends ServiceImpl<TeacherMapper, Teacher> implements ITeacherService {
 
     @Resource
+    @Autowired
     TeacherMapper mapper;
 
     @Override

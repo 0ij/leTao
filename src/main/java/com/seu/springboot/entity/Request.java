@@ -14,7 +14,7 @@ import java.time.LocalTime;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("Request")
+@TableName("letao_request")
 public class Request {
 
     private static final long serialVersionUID = 1L;

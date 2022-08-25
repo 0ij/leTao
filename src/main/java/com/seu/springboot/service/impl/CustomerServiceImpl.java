@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.seu.springboot.entity.Customer;
 import com.seu.springboot.mapper.CustomerMapper;
 import com.seu.springboot.service.ICustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,6 +14,7 @@ import java.util.List;
 @Service
 public class CustomerServiceImpl extends ServiceImpl<CustomerMapper, Customer> implements ICustomerService {
     @Resource
+    @Autowired
     CustomerMapper customerMapper;
 
     @Override
@@ -28,7 +30,7 @@ public class CustomerServiceImpl extends ServiceImpl<CustomerMapper, Customer> i
     @Override
     public Customer addCustomer(){
         Customer customer = new Customer();
-        customer.setName("a1a");
+        customer.setCname("a1a");
         customer.setCpassword("12356");
 
         int res = customerMapper.insert(customer);
@@ -41,7 +43,7 @@ public class CustomerServiceImpl extends ServiceImpl<CustomerMapper, Customer> i
         Customer customer = new Customer();
         customer.setCid(cid);
         //customer.setCpassword("4444");
-        customer.setName(name);
+        customer.setCname(name);
         customerMapper.updateById(customer);
         return customer;
     }

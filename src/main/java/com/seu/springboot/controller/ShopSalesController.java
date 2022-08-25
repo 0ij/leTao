@@ -1,12 +1,14 @@
 package com.seu.springboot.controller;
 
 
+import com.seu.springboot.entity.Evaluation;
 import com.seu.springboot.entity.ShopSales;
 import com.seu.springboot.service.IShopSalesService;
 import com.seu.springboot.utils.R;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -30,8 +32,10 @@ public class ShopSalesController {
     };
     @GetMapping("/getShopSalesByID")
     public R getShopSalesByID( Integer id){
+        List<ShopSales> list=new ArrayList<>();
         ShopSales temp=service.getById(id);
-        return R.ok().data("items",temp);
+        list.add(temp);
+        return R.ok().data("items",list);
     };
     /*
      * 增加的部分

@@ -6,6 +6,7 @@ import com.seu.springboot.mapper.AdministratorMapper;
 import com.seu.springboot.mapper.GoodsMapper;
 import com.seu.springboot.service.IAdministratorService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -23,6 +24,7 @@ import java.util.List;
 public class AdministratorServiceImpl extends ServiceImpl<AdministratorMapper, Administrator> implements IAdministratorService {
 
     @Resource
+    @Autowired
     AdministratorMapper mapper;
 
     @Override

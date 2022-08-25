@@ -8,5 +8,6 @@ import java.util.List;
 public interface IRequestService extends IService<Request> {
     List<Request> findAll();
 
+    List<Request> findAllRequests();
 }
 

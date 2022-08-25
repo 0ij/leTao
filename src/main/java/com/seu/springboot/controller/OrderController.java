@@ -1,11 +1,15 @@
 package com.seu.springboot.controller;
 
+
+import com.seu.springboot.entity.Evaluation;
 import com.seu.springboot.entity.Order;
 import com.seu.springboot.service.IOrderService;
 import com.seu.springboot.utils.R;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/order")
@@ -20,22 +24,28 @@ public class OrderController {
 //        return orderList;
 //    }
 
+    //private Gson gson =new Gson();
     @GetMapping("/getOrders")
     public R getOrderList(){
+        //String s= gson.toJson(orderService.findAllOrders());
         return R.ok().data("orders",orderService.findAllOrders());
     }
 
 
     @PostMapping("/getOrderByOid")
-    @CrossOrigin
+    //@CrossOrigin(origins = {"*","null"})
     public R getOrderByOid( Integer oid){
         System.err.println("oid-------->"+oid);
-        return R.ok().data("orders",orderService.findOrderByOid(oid));
+        List<Order> list=new ArrayList<>();
+        list.add(orderService.getById(oid));
+        return R.ok().data("orders",list);
     }
 
     @PostMapping("/getOrderByGid")
     public R getOrderByGid(int gid){
-        return R.ok().data("orders",orderService.findOrderByGid(gid));
+        List<Order> list =new ArrayList<>();
+        list.add(orderService.findOrderByGid(gid));
+        return R.ok().data("orders",list);
     }
 
     @PostMapping("/addOrder")

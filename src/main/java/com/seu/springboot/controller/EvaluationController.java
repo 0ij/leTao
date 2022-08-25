@@ -6,6 +6,8 @@ import com.seu.springboot.utils.R;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -15,22 +17,17 @@ public class EvaluationController {
     @Resource
     IEvaluationService evaluationService;
 
-   // @GetMapping("/getEvaluations")
-    public List<Evaluation> getEvaluations(){
-        List<Evaluation> list =evaluationService.findAllEvaluations();
-        return list;
-
-    }
-
     @GetMapping("/getEvaluations")
     public R getEvaluationList(){
         return R.ok().data("evaluations",evaluationService.findAllEvaluations());
     }
 
     @PostMapping("/getEvaluationByOid")
-    public R getEvaluationById(String id){
-        System.err.println("id:"+id);
-        return R.ok().data("evaluations",evaluationService.findEvaluationById(id));
+    public R getEvaluationById(Integer oid){
+        System.err.println("oid:"+oid);
+        List<Evaluation> list=new ArrayList<>();
+        list.add(evaluationService.getById(oid));
+        return R.ok().data("evaluations",list);
     }
 
 }

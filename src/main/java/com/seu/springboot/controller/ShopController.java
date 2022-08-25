@@ -1,11 +1,15 @@
 package com.seu.springboot.controller;
 
 
+import com.seu.springboot.entity.Evaluation;
 import com.seu.springboot.entity.Shop;
 import com.seu.springboot.service.IShopService;
 import com.seu.springboot.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -47,10 +51,12 @@ public class ShopController {
         }
     }
 
-    @GetMapping("/getShopById/{sid}")
-    public R getShopById(@PathVariable Integer sid) {
+    @GetMapping("/getShopById")
+    public R getShopById( Integer sid) {
         Shop shop = shopService.getById(sid);
-        return R.ok().data("items", shop);
+        List<Shop> list=new ArrayList<>();
+        list.add(shop);
+        return R.ok().data("items", list);
     }
 
     @PostMapping("/updateShop")

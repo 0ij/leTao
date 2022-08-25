@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.seu.springboot.entity.Evaluation;
 import com.seu.springboot.mapper.EvaluationMapper;
 import com.seu.springboot.service.IEvaluationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,6 +14,7 @@ import java.util.List;
 @Service
 public class EvaluationServiceImpl extends ServiceImpl<EvaluationMapper, Evaluation> implements IEvaluationService {
     @Resource
+    @Autowired
     EvaluationMapper mapper;
 
 

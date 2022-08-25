@@ -1,15 +1,18 @@
 package com.seu.springboot.controller;
 
+import com.seu.springboot.entity.Evaluation;
 import com.seu.springboot.entity.Request;
 import com.seu.springboot.service.IRequestService;
 import com.seu.springboot.utils.R;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ShopSales")
+@RequestMapping("/request")
+@CrossOrigin
 public class RequestController {
 
     @Resource
@@ -18,20 +21,22 @@ public class RequestController {
     /*
      * 查询的部分
      * */
-    @GetMapping("/getRequest")
-    public R getShopSales(){
+    @GetMapping("/getRequests")
+    public R getRequests(){
 
         //调用service层函数
-        List<Request> list = service.findAll();
+       // List<Request> list = service.findAll();
         //System.err.println("list--------->"+list);
         //return  list;
-        return R.ok().data("Request",service.findAll());
+        return R.ok().data("Request",service.findAllRequests());
     };
 
-    @GetMapping("/getRequestByID")
-    public R getRequestByID( Integer id){
-        Request temp=service.getById(id);
-        return R.ok().data("items",temp);
+    @PostMapping("/getRequestByID")
+    public R getRequestByID(int rid){
+        Request temp=service.getById(rid);
+        List<Request> list=new ArrayList<>();
+        list.add(temp);
+        return R.ok().data("items",list);
     };
 
     /*

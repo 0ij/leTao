@@ -1,11 +1,15 @@
 package com.seu.springboot.controller;
 
 
+import com.seu.springboot.entity.Evaluation;
 import com.seu.springboot.entity.Storekeeper;
 import com.seu.springboot.service.IStorekeeperService;
 import com.seu.springboot.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -48,10 +52,12 @@ public class StorekeeperController {
         }
     }
 
-    @GetMapping("/getStorekeeperById/{kid}")
-    public R getStorekeeperById(@PathVariable Integer kid) {
+    @GetMapping("/getStorekeeperById")
+    public R getStorekeeperById(Integer kid) {
         Storekeeper storekeeper = storekeeperService.getById(kid);
-        return R.ok().data("items", storekeeper);
+        List<Storekeeper> list=new ArrayList<>();
+        list.add(storekeeper);
+        return R.ok().data("items", list);
     }
 
     @PostMapping("/updateStorekeeper")
