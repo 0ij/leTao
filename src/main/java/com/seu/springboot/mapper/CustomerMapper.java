@@ -12,5 +12,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2022-08-24
  */
 public interface CustomerMapper extends BaseMapper<Customer> {
-
+    Customer findByCname(String cname);
+    Customer getByCnameAndCpassword(String cname,String cpassword);
 }

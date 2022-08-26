@@ -6,6 +6,7 @@ import com.seu.springboot.service.ICustomerService;
 import com.seu.springboot.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.HtmlUtils;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class CustomerController {
     ICustomerService customerService;
 
     @GetMapping("/getCustomers")
-    public R getCustoemers() {
+    public R getCustomers() {
         return R.ok().data("customers", customerService.findAll());
     }
 
@@ -50,4 +51,17 @@ public class CustomerController {
         Integer res = customerService.deleteCustomerById(id);
         return res;
     }
+
+    @PostMapping("/login")
+    public R login(@RequestBody Customer customer) {
+        String cname = customer.getCname();
+        cname = HtmlUtils.htmlEscape(cname);
+        Customer cus = customerService.get(cname, customer.getCpassword());
+        if(cus == null) {
+            return R.error();
+        } else {
+            return R.ok();
+        }
+    }
+
 }
