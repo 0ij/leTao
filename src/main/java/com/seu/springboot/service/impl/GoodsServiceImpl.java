@@ -23,6 +23,16 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
 
         List<Goods> list = this.baseMapper.selectList(wrapper);
         return list;
-    };
+    }
+
+    @Override
+    public List<Goods> getGoodsByName(String gname) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("gname", gname);
+        List<Goods> list= this.baseMapper.selectList(wrapper);
+        return list;
+    }
+
+    ;
 
 }

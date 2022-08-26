@@ -36,13 +36,11 @@ public class GoodsController {
         return R.ok().data("items",list);
     }
 
-//    @GetMapping("/getGoodsByName")
-//    public R getGoodsByName(String name){
-//        Goods a_good=service.getByName(name);
-//
-//
-//        return R.ok().data("items",a_good);
-//    }
+    @PostMapping("/getGoodsByName")
+    public R getGoodsByName(String name){
+        List<Goods> list=service.getGoodsByName(name);
+        return R.ok().data("goodsList",list);
+    }
 
 
     /*

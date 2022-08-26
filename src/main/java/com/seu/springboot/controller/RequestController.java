@@ -33,9 +33,8 @@ public class RequestController {
 
     @PostMapping("/getRequestByID")
     public R getRequestByID(int rid){
-        Request temp=service.getById(rid);
         List<Request> list=new ArrayList<>();
-        list.add(temp);
+        list.add(service.getById(rid));
         return R.ok().data("items",list);
     };
 
@@ -64,14 +63,25 @@ public class RequestController {
 
     /*
      * 修改的部分
+     * 更新一整个对象
      * */
+
+//    @PostMapping("/updateRequest")
+//    public R updateRequest(@RequestBody Request request){
+//        boolean mark=service.updateById(request);
+//        if(mark)
+//            return R.ok();
+//        return R.error();
+//    }
+
+
     @PostMapping("/updateRequest")
     public R updateRequest(@RequestBody Request request){
+        //System.err.println(request);
         boolean mark=service.updateById(request);
         if(mark)
             return R.ok();
         return R.error();
+
     }
-
-
 }
