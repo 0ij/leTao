@@ -30,6 +30,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq("gname", gname);
         List<Goods> list= this.baseMapper.selectList(wrapper);
+        System.err.println(list);
         return list;
     }
 

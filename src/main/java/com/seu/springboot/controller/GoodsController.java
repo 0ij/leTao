@@ -31,15 +31,26 @@ public class GoodsController {
     public R getGoodsByID(Integer Gid){
         //System.err.println("Gid: "+Gid );
         List<Goods> list=new ArrayList<>();
-        list.add(service.getById(Gid));
 
-        return R.ok().data("items",list);
+
+        if(service.getById(Gid)==null){
+            return R.error();
+        }else{
+            list.add(service.getById(Gid));
+            return R.ok().data("items",list);
+        }
+
     }
 
     @PostMapping("/getGoodsByName")
-    public R getGoodsByName(String name){
-        List<Goods> list=service.getGoodsByName(name);
-        return R.ok().data("goodsList",list);
+    public R getGoodsByName(String Gname){
+        System.err.println(Gname);
+        List<Goods> list=service.getGoodsByName(Gname);
+        if(list == null || list.size () ==0)
+            return R.error();
+        else
+            return R.ok().data("goodsList",list);
+
     }
 
 

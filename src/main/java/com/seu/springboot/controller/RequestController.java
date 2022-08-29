@@ -34,8 +34,12 @@ public class RequestController {
     @PostMapping("/getRequestByID")
     public R getRequestByID(int rid){
         List<Request> list=new ArrayList<>();
-        list.add(service.getById(rid));
-        return R.ok().data("items",list);
+        if(service.getById(rid)==null){
+            return R.error();
+        }else{
+            list.add(service.getById(rid));
+            return R.ok().data("items",list);
+        }
     };
 
     /*
