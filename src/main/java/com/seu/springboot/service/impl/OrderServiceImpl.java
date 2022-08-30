@@ -39,7 +39,6 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order>implements 
         Order order = new Order();
         order.setOid(id);
         order.setCid("111");
-        order.setAddress("九龙湖动物园");
 
         mapper.updateById(order);
         return order;

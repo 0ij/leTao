@@ -52,12 +52,20 @@ public class GoodssalesController {
         }
     }
 
-    @GetMapping("/getGoodssalesById")
-    public R getGoodssalesById(Integer gid) {
-        Goodssales goodssales = service.getById(gid);
+    @GetMapping("/getGoodssalesByGid")
+    public R getGoodssalesByGid(Integer gid) {
         List<Goodssales> list=new ArrayList<>();
-        list.add(goodssales);
-        return R.ok().data("items", list);
+        list = service.getGoodsSalesByG(gid);
+
+        return R.ok().data("goodssales", list);
+    }
+
+    @GetMapping("/getGoodssalesBySid")
+    public R getGoodssalesBySid(Integer sid) {
+        List<Goodssales> list=new ArrayList<>();
+        list = service.getGoodsSalesByS(sid);
+
+        return R.ok().data("goodssales", list);
     }
 
     @PostMapping("/updateGoodssales")

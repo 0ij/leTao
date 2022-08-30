@@ -37,7 +37,5 @@ public class Storekeeper implements Serializable {
     @TableField("Sid")
     private Integer sid;
 
-    @TableField("id")
-    private String id;
 
 }

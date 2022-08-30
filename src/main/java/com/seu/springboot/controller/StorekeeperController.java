@@ -57,7 +57,7 @@ public class StorekeeperController {
         Storekeeper storekeeper = storekeeperService.getById(kid);
         List<Storekeeper> list=new ArrayList<>();
         list.add(storekeeper);
-        return R.ok().data("items", list);
+        return R.ok().data("storekeeper", list);
     }
 
     @PostMapping("/updateStorekeeper")

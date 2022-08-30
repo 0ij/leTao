@@ -30,12 +30,12 @@ public class Order {
     @TableField("totalprice")
     private Integer totalprice;
 
-    @TableField("address")
-    private String address;
+    @TableField("cnumber")
+    private String cnumber;
 
     @TableField("state")
     private Integer state;
 
-    @TableField("courier_number")
-    private String courier_number;
+    @TableField("Aid")
+    private Integer Aid;
 }

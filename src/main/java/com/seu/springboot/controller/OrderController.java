@@ -18,19 +18,11 @@ public class OrderController {
     @Resource
     IOrderService orderService;
 
-//    @GetMapping("/getOrder")
-//    public List<Order> getOrders(){
-//        List<Order> orderList = orderService.findAllOrders();
-//        return orderList;
-//    }
-
-    //private Gson gson =new Gson();
     @GetMapping("/getOrders")
     public R getOrderList(){
         //String s= gson.toJson(orderService.findAllOrders());
         return R.ok().data("orders",orderService.findAllOrders());
     }
-
 
     @PostMapping("/getOrderByOid")
     //@CrossOrigin(origins = {"*","null"})

@@ -16,4 +16,8 @@ import java.util.List;
 public interface IGoodssalesService extends IService<Goodssales> {
 
     List<Goodssales> findAll();
+
+    List<Goodssales> getGoodsSalesByG(Integer gid);
+
+    List<Goodssales> getGoodsSalesByS(Integer sid);
 }

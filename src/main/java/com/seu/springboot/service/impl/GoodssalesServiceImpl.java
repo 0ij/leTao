@@ -26,4 +26,20 @@ public class GoodssalesServiceImpl extends ServiceImpl<GoodssalesMapper, Goodssa
         List<Goodssales> goodssales = this.baseMapper.selectList(wrapper);
         return goodssales;
     }
+
+    @Override
+    public List<Goodssales> getGoodsSalesByG(Integer gid) {
+        QueryWrapper<Goodssales> wrapper = new QueryWrapper<>();
+        wrapper.eq("gid", gid);
+        List<Goodssales> goodssales = this.baseMapper.selectList(wrapper);
+        return goodssales;
+    }
+
+    @Override
+    public List<Goodssales> getGoodsSalesByS(Integer sid) {
+        QueryWrapper<Goodssales> wrapper = new QueryWrapper<>();
+        wrapper.eq("sid", sid);
+        List<Goodssales> goodssales = this.baseMapper.selectList(wrapper);
+        return goodssales;
+    }
 }

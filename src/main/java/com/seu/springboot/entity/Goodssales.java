@@ -22,13 +22,15 @@ public class Goodssales implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    //商品id
     @TableId("Gid")
     private Integer gid;
 
     @TableField("goodsales")
     private Integer goodsales;
 
-    @TableField("id")
-    private String id;
+    //商店id
+    @TableField("Sid")
+    private String Sid;
 
 }
