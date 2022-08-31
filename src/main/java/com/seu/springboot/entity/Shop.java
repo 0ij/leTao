@@ -41,6 +41,6 @@ public class Shop implements Serializable {
     private String locate;
 
     @TableField("id")
-    private String id;
+    private Integer id;
 
 }

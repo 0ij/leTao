@@ -26,4 +26,12 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IS
         List<Shop> shops = this.baseMapper.selectList(wrapper);
         return shops;
     }
+
+    @Override
+    public List<Shop> getByName(String sname) {
+        QueryWrapper<Shop> wrapper = new QueryWrapper<>();
+        wrapper.eq("sname", sname);
+        List<Shop> shop = baseMapper.selectList(wrapper);
+        return shop;
+    }
 }

@@ -14,5 +14,5 @@ public interface ICustomerService extends IService<Customer> {
 
     int deleteCustomerById(Integer id);
 
-    Customer getByNameAndPassword(String cname,String cpassword);
+    Customer getByNameAndPassword(String cid,String cpassword);
 }

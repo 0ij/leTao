@@ -55,9 +55,10 @@ public class CustomerServiceImpl extends ServiceImpl<CustomerMapper, Customer> i
     }
 
     @Override
-    public Customer getByNameAndPassword(String cname,String cpassword) {
+    public Customer getByNameAndPassword(String cid,String cpassword) {
+        System.err.println("cid"+cid +" cpassword"+cpassword);
         QueryWrapper<Customer> wrapper=new QueryWrapper<>();
-        wrapper.eq("Cname",cname).eq("Cpassword",cpassword);
+        wrapper.eq("Cid",cid).eq("Cpassword",cpassword);
         Customer customer =customerMapper.selectOne(wrapper);
 
         return customer;

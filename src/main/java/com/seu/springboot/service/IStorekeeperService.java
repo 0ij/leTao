@@ -16,4 +16,6 @@ import java.util.List;
 public interface IStorekeeperService extends IService<Storekeeper> {
 
     List<Storekeeper> findAll();
+
+    Storekeeper getByNameAndPassword(String username, String password);
 }

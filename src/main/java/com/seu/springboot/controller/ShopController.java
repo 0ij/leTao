@@ -56,7 +56,15 @@ public class ShopController {
         Shop shop = shopService.getById(sid);
         List<Shop> list=new ArrayList<>();
         list.add(shop);
-        return R.ok().data("items", list);
+        return R.ok().data("shop", list);
+    }
+
+    @GetMapping("/getShopByName")
+    public R getShopByName( String name) {
+        List<Shop> list=new ArrayList<>();
+        list = shopService.getByName(name);
+//        list.add(shop);
+        return R.ok().data("shop", list);
     }
 
     @PostMapping("/updateShop")

@@ -16,4 +16,6 @@ import java.util.List;
 public interface IShopService extends IService<Shop> {
 
     List<Shop> findAll();
+
+    List<Shop> getByName(String name);
 }

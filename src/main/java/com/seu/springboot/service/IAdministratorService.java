@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface IAdministratorService extends IService<Administrator> {
     List<Administrator> findAll();
+
+    Administrator getByNameAndPassword(String aid, String apassword);
 }

@@ -1,6 +1,7 @@
 package com.seu.springboot.controller;
 
 import com.seu.springboot.utils.JsonResult;
+import com.seu.springboot.utils.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -33,7 +34,7 @@ public class FileController {
     private String fileSavePath;
 
     @PostMapping(path = "/upload")
-    public JsonResult uploadFile(MultipartFile file, HttpServletRequest request) {
+    public R uploadFile(MultipartFile file, HttpServletRequest request) {
         //1.后半段目录：  2020/03/15
         String directory = simpleDateFormat.format(new Date());
         /**
@@ -57,10 +58,16 @@ public class FileController {
             //协议 :// ip地址 ：端口号 / 文件目录(/images/2020/03/15/xxx.jpg)
             String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + "/images/" + directory + newFileName;
             log.info("图片上传，访问URL：" + url);
-            return JsonResult.builder().data(url).message("上传成功！").code("1").build();
+            return R.ok().data("url",url);
         } catch (IOException e) {
-            return JsonResult.builder().data(null).message("IO异常！").code("-1").build();
+            return R.error();
         }
+    }
+
+    //保存图片
+    @PostMapping("/savePic")
+    public R savePic( ){
+        return R.ok();
     }
 }
 

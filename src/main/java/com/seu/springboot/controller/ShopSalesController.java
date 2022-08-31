@@ -28,8 +28,9 @@ public class ShopSalesController {
         List<ShopSales> list = service.findAll();
         //System.err.println("list--------->"+list);
         //return  list;
-        return R.ok().data("teachers",service.findAll());
+        return R.ok().data("shopsales",service.findAll());
     };
+
     @GetMapping("/getShopSalesByID")
     public R getShopSalesByID( Integer id){
         List<ShopSales> list=new ArrayList<>();
